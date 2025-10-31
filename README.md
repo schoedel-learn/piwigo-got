@@ -37,7 +37,7 @@ If you do not have your own server, consider the [piwigo.com](https://piwigo.com
 
 Running your own Piwigo instance or managing a fork? Check out our comprehensive guide:
 
-* [Self-Hosting and Fork Management Guide](docs/SELF_HOSTING_AND_FORKING.md) - Learn about managing self-hosted instances (including Cloudron), understanding forks, best practices for customization, and version control strategies.
+* [Self-Hosting and Fork Management Guide](docs/SELF_HOSTING_AND_FORKING.md) - Learn about managing self-hosted instances, understanding forks, development workflow (local → staging → production), working with IDEs like Cursor, and version control strategies.
 
 ## Contributing
 
