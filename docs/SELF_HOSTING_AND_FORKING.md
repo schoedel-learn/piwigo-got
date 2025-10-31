@@ -101,6 +101,73 @@ Your Fork → Build/Test → Deploy to Cloudron manually
 - May conflict with Cloudron's update mechanism
 - Requires technical expertise
 
+#### Option C: Fork After Deployment (Development Workflow)
+
+```
+Cloudron Instance (running) → Fork for Development → Test Changes → Deploy to Cloudron
+```
+
+**Best for:** Users who already have a running Cloudron instance and want to develop customizations
+
+**Your Situation:**
+If you've already deployed Piwigo on Cloudron and then created a fork to develop customizations (perhaps using Got Photo or similar as inspiration), here's your workflow:
+
+**Steps:**
+
+1. **Your fork is your development environment:**
+   ```bash
+   # Clone your fork locally for development
+   git clone https://github.com/YOUR-USERNAME/piwigo-got
+   cd piwigo-got
+   
+   # Add upstream Piwigo for updates (optional)
+   git remote add upstream https://github.com/Piwigo/Piwigo
+   ```
+
+2. **Develop customizations in your fork:**
+   ```bash
+   # Create a branch for your client customizations
+   git checkout -b client-customizations
+   
+   # Make your changes
+   # ... edit files, add features, customize for client needs ...
+   
+   # Commit your changes
+   git add .
+   git commit -m "Add custom feature for client"
+   git push origin client-customizations
+   ```
+
+3. **Test locally before deploying:**
+   - Set up a local development environment (LAMP/LEMP stack)
+   - Test your changes thoroughly
+   - Document what you changed and why
+
+4. **Deploy to your Cloudron instance:**
+   - Option A: Use SFTP/SCP to copy modified files to your Cloudron instance
+   - Option B: Use git on your Cloudron server (if you have SSH access)
+   - Option C: Create a custom Cloudron app package with your changes
+
+5. **Keep a deployment log:**
+   - Document which files you deployed and when
+   - Keep notes on any Cloudron-specific configurations
+   - Track any issues that arise
+
+**Important Notes:**
+- Your fork on GitHub is separate from your running Cloudron instance
+- Changes in your fork won't automatically appear on your Cloudron site
+- You manually deploy changes from your fork to Cloudron
+- Cloudron may overwrite your changes during updates - disable auto-updates or redeploy after updates
+- Consider using plugins/themes where possible to minimize core file changes
+
+**Using Got Photo as a Model:**
+If you're using Got Photo or another Piwigo installation as inspiration:
+1. Study the features you want to replicate
+2. Implement similar functionality in your fork
+3. Test in a local environment first
+4. Deploy tested changes to your Cloudron instance
+5. Document your customizations for future reference
+
 ## Managing Your Fork
 
 ### Initial Setup
@@ -175,11 +242,40 @@ git push origin custom-cloudron --force
 |-----------|-----------|--------------|-------------------|
 | Use Piwigo as-is | Optional | Optional | Use Cloudron's version |
 | Customize via plugins/themes | Optional | Optional | Use Cloudron's version |
+| Develop custom features for client | Yes | Optional | Manual deployment from fork |
 | Make small core modifications | Yes | If you want updates | Deploy your fork manually |
 | Contribute to Piwigo | Yes | Yes | Use Cloudron's version for production |
 | Learn/experiment | Yes | Optional | Either way |
 
 ## Common Scenarios
+
+### Scenario: "I already deployed Piwigo on Cloudron, then forked it for customization"
+
+**This is your situation!** Here's what you should know:
+
+**Your Setup:**
+- Cloudron instance: Your production/client-facing site (running)
+- GitHub fork: Your development workspace for creating customizations
+
+**Recommended Workflow:**
+1. Use your fork as the development environment
+2. Test changes locally before deploying
+3. Manually deploy tested changes to Cloudron
+4. Document your customizations
+5. Consider building features as plugins when possible to minimize core changes
+
+**Key Understanding:**
+- Your fork is NOT connected to your Cloudron instance
+- The fork is where you develop and track code changes
+- You manually transfer changes from fork to Cloudron
+- Your fork serves as version control and backup of your customizations
+
+**Next Steps:**
+1. Clone your fork locally: `git clone https://github.com/YOUR-USERNAME/piwigo-got`
+2. Set up a local development environment to test changes
+3. Create a branch for your customizations: `git checkout -b client-project`
+4. Develop features inspired by Got Photo or other sources
+5. Test locally, then deploy to Cloudron when ready
 
 ### Scenario: "I just want to use Piwigo with some visual changes"
 
@@ -262,6 +358,35 @@ git checkout -b feature-contribution
 # Make your contribution here
 ```
 
+### "How do I use Got Photo or another installation as a model?"
+
+When developing customizations inspired by another Piwigo installation:
+
+1. **Study the features you want:**
+   - Visit the Got Photo site or other reference installation
+   - Document the features/functionality you want to replicate
+   - Take screenshots or notes about the user experience
+
+2. **Research the implementation:**
+   - Check if the features are from plugins (easier to identify and potentially reuse)
+   - Look for similar plugins in the Piwigo plugin repository
+   - Decide if you need custom code or can use/modify existing plugins
+
+3. **Develop in your fork:**
+   - Create a feature branch: `git checkout -b feature-got-photo-gallery`
+   - Implement the functionality
+   - Test thoroughly in your local environment
+
+4. **Deploy incrementally:**
+   - Deploy one feature at a time to your Cloudron instance
+   - Test each feature in production before adding the next
+   - Keep detailed notes on what you deployed
+
+5. **Maintain your customizations:**
+   - Keep a README or CHANGELOG in your fork documenting what you've customized
+   - Note which features are inspired by Got Photo vs original work
+   - Document any dependencies or special configurations
+
 ## Resources
 
 - [Official Piwigo Documentation](https://piwigo.org/doc)
@@ -269,6 +394,7 @@ git checkout -b feature-contribution
 - [Contributing Guide](CONTRIBUTING.md)
 - [Plugin Development](https://piwigo.org/doc/doku.php?id=dev:plugins)
 - [GitHub Forking Guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+- [Cloudron Documentation](https://docs.cloudron.io/)
 
 ## Summary
 
@@ -276,9 +402,17 @@ git checkout -b feature-contribution
 
 1. **Your self-hosted instance and your fork are separate** - One is a running application, the other is source code on GitHub
 2. **You don't need to "connect" them** - They serve different purposes
-3. **For most users:** Use Cloudron's standard Piwigo + plugins/themes
-4. **For developers:** Fork for development, but understand the maintenance overhead
-5. **For contributors:** Keep your fork synced with upstream and use feature branches
-6. **Documentation is your friend** - Document your customizations and deployment process
+3. **Common workflow: Deploy first, fork later** - If you deployed Piwigo on Cloudron first and then forked for customization, use your fork as a development workspace and manually deploy changes to Cloudron
+4. **For most users:** Use Cloudron's standard Piwigo + plugins/themes
+5. **For client customizations:** Fork for development, test locally, deploy manually to Cloudron
+6. **For contributors:** Keep your fork synced with upstream and use feature branches
+7. **Documentation is your friend** - Document your customizations and deployment process
+8. **Using reference models (like Got Photo):** Study features, implement in your fork, test, then deploy
+
+**Your Specific Workflow (Cloudron → Fork → Customize):**
+- Your Cloudron instance is your production environment (running for client)
+- Your fork is your development environment (for creating customizations)
+- You develop in the fork, test locally, then manually deploy to Cloudron
+- This separation keeps your production stable while you experiment and develop
 
 Remember: There's no single "right" way. Choose the approach that matches your technical skills, time availability, and customization needs.
