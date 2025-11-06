@@ -1,0 +1,190 @@
+{
+  // PHP Configuration
+  // Note: Update this path to match your PHP installation if different
+  // Find it with: which php (on macOS/Linux) or where php (on Windows)
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "php.validate.enable": true,
+  "php.validate.run": "onSave",
+  "php.suggest.basic": true,
+  
+  // Set PHP version for Laravel (Laravel 10+ requires PHP 8.1+, Laravel 11+ requires PHP 8.2+)
+  "php.validate.version": "8.1",
+  
+  // File associations for Laravel
+  "files.associations": {
+    "*.php": "php",
+    "*.blade.php": "blade",
+    ".env": "dotenv",
+    ".env.*": "dotenv",
+    "artisan": "shellscript",
+    "phpunit.xml": "xml",
+    ".php_cs": "php",
+    "composer.json": "jsonc",
+    "composer.lock": "json"
+  },
+  
+  // Editor settings
+  "editor.formatOnSave": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  
+  // PHP-specific formatting
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": false
+  },
+  
+  // Exclude files from search (Laravel defaults)
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/vendor": true,
+    "**/.idea": true,
+    "**/.vscode": false
+  },
+  
+  // Search exclude patterns (Laravel)
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/vendor": true,
+    "**/bower_components": true,
+    "**/storage": true,
+    "**/bootstrap/cache": true,
+    "**/.git": true,
+    "**/public/hot": true,
+    "**/public/storage": true,
+    "**/storage/*.key": true
+  },
+  
+  // Watch exclude (for file watcher performance)
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "**/storage/**": true,
+    "**/bootstrap/cache/**": true,
+    "**/public/hot": true
+  },
+  
+  // Intelephense settings (PHP language server)
+  "intelephense.files.maxSize": 5000000,
+  "intelephense.files.exclude": [
+    "**/.git/**",
+    "**/vendor/**",
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/storage/**",
+    "**/bootstrap/cache/**"
+  ],
+  "intelephense.composer.executablePath": "composer",
+  "intelephense.stubs": [
+    "bcmath",
+    "bz2",
+    "calendar",
+    "Core",
+    "ctype",
+    "curl",
+    "date",
+    "dba",
+    "dom",
+    "enchant",
+    "exif",
+    "fileinfo",
+    "filter",
+    "fpm",
+    "ftp",
+    "gd",
+    "gettext",
+    "gmp",
+    "hash",
+    "iconv",
+    "imap",
+    "intl",
+    "json",
+    "ldap",
+    "libxml",
+    "mbstring",
+    "meta",
+    "mysqli",
+    "oci8",
+    "odbc",
+    "openssl",
+    "pcntl",
+    "pcre",
+    "PDO",
+    "pdo_ibm",
+    "pdo_mysql",
+    "pdo_pgsql",
+    "pdo_sqlite",
+    "pgsql",
+    "Phar",
+    "posix",
+    "pspell",
+    "random",
+    "readline",
+    "Reflection",
+    "session",
+    "shmop",
+    "SimpleXML",
+    "snmp",
+    "soap",
+    "sockets",
+    "sodium",
+    "SPL",
+    "sqlite3",
+    "standard",
+    "superglobals",
+    "sysvmsg",
+    "sysvsem",
+    "sysvshm",
+    "tidy",
+    "tokenizer",
+    "xml",
+    "xmlreader",
+    "xmlrpc",
+    "xmlwriter",
+    "xsl",
+    "Zend OPcache",
+    "zip",
+    "zlib"
+  ],
+  
+  // Laravel Blade template support
+  "blade.format.enable": true,
+  "blade.format.indentInnerHtml": true,
+  "blade.format.wrapAttributes": "auto",
+  "blade.completion.insertMode": "replace",
+  
+  // Laravel specific paths
+  "laravel.artisanPath": "${workspaceFolder}/artisan",
+  
+  // Git settings
+  "git.ignoreLimitWarning": true,
+  
+  // Terminal settings (for running PHP scripts)
+  "terminal.integrated.env.osx": {
+    "PATH": "${env:PATH}"
+  },
+  
+  // File encoding
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  
+  // Word based suggestions (helpful for PHP)
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  "editor.suggestSelection": "first",
+  
+  // Bracket pair colorization (helpful for nested PHP/HTML)
+  "editor.bracketPairColorization.enabled": true,
+  
+  // Error lens (inline error display)
+  "errorLens.enabled": true,
+  
+  // Code lens (show function references)
+  "editor.codeLens": true
+}
+

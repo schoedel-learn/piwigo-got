@@ -1,0 +1,52 @@
+{
+  "recommendations": [
+    // PHP Development
+    "bmewburn.vscode-intelephense-client",
+    "xdebug.php-debug",
+    
+    // Laravel Specific
+    "onecentlin.laravel-blade",
+    "amiralizadeh9480.laravel-extra-intellisense",
+    "codingyu.laravel-goto-view",
+    
+    // Database Tools
+    "cweijan.vscode-mysql-client2",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-mysql",
+    
+    // Git Tools
+    "eamodio.gitlens",
+    
+    // Code Quality
+    "valeryanm.vscode-phpsab",
+    "shivammathur.phpcs",
+    
+    // General Development
+    "usernamehw.errorlens",
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-json",
+    
+    // Web Development
+    "bradlc.vscode-tailwindcss",
+    "ecmel.vscode-html-css",
+    "dbaeumer.vscode-eslint",
+    
+    // Environment Files
+    "mikestead.dotenv",
+    
+    // Composer
+    "ikappas.composer",
+    
+    // Laravel Package.json helpers
+    "christian-kohler.path-intellisense",
+    "formulahendry.auto-close-tag"
+  ],
+  "unwantedRecommendations": [
+    // Disable conflicting PHP extensions
+    "felixfbecker.php-debug",
+    "felixfbecker.php-intellisense"
+  ]
+}
+

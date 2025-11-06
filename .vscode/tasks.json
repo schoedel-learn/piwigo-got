@@ -1,0 +1,121 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Laravel: Serve",
+      "type": "shell",
+      "command": "${workspaceFolder}/vendor/bin/sail artisan serve",
+      "windows": {
+        "command": "php artisan serve"
+      },
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Laravel: Artisan",
+      "type": "shell",
+      "command": "${workspaceFolder}/vendor/bin/sail artisan",
+      "windows": {
+        "command": "php artisan"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Laravel: Test",
+      "type": "shell",
+      "command": "${workspaceFolder}/vendor/bin/sail test",
+      "windows": {
+        "command": "php artisan test"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "group": "test"
+    },
+    {
+      "label": "Laravel: Migrate",
+      "type": "shell",
+      "command": "${workspaceFolder}/vendor/bin/sail artisan migrate",
+      "windows": {
+        "command": "php artisan migrate"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Laravel: Migrate Fresh",
+      "type": "shell",
+      "command": "${workspaceFolder}/vendor/bin/sail artisan migrate:fresh --seed",
+      "windows": {
+        "command": "php artisan migrate:fresh --seed"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Check PHP Syntax",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "-l",
+        "${file}"
+      ],
+      "problemMatcher": {
+        "owner": "php",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^Parse error: (.+) in (.+) on line (\\d+)$",
+          "file": 2,
+          "line": 3,
+          "message": 1
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Composer: Install",
+      "type": "shell",
+      "command": "composer install",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "NPM: Install",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
+
